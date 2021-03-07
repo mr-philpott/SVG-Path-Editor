@@ -1,0 +1,35 @@
+
+<!-- Fancy S--><!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Ethan Philpott">
+  <meta name="description" content="">
+  <title>Svg Editor</title>
+  <link rel="stylesheet" href="styles/css/min/style.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata&amp;display=swap" rel="stylesheet">
+</head>
+<body> 
+  <main> 
+    <article> 
+      <section class="display"> 
+        <canvas id="canvas"></canvas>
+      </section>
+      <section class="code-cont">
+        <div class="code" contenteditable="true" spellcheck="false">Type your code here</div>
+        <div class="clipboard">
+          <button class="path-clipboard">Copy Path </button>
+          <button class="math-clipboard">Copy Math</button>
+        </div>
+      </section>
+    </article>
+    <nav> 
+      <div class="precision-cont">
+        <h3>Precision:  </h3>
+        <input id="precision" type="text">
+      </div>
+    </nav>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+  <script src="scripts/main.js"></script>
+</body>

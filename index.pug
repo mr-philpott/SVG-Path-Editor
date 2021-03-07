@@ -1,0 +1,44 @@
+// Fancy S
+//- m 100 100
+//- l 100 200
+//- l 200 300
+//- l 200 400
+//- q 200 500 500 100
+//- q 0   500 400 0
+//- l 0   300
+//- l 50  250
+//- m 100 400
+//- l 100 300
+//- l 0   200
+//- l 0   100
+//- q 0   0   0   100
+//- q 200 0   100 200
+//- l 200 200
+//- l 150 250
+
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='author' content='Ethan Philpott')
+    meta(name='description' content='')
+    title Svg Editor
+    link(rel='stylesheet' href='styles/css/min/style.min.css')
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet")
+body 
+    main 
+        article 
+            section.display 
+                canvas#canvas
+            section.code-cont
+                .code(contenteditable="true" spellcheck="false") Type your code here
+                .clipboard
+                    button.path-clipboard Copy Path 
+                    button.math-clipboard Copy Math
+        nav 
+            .precision-cont
+                h3 Precision:  
+                input#precision(type="text")
+
+    script(src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous")
+    script(src='scripts/main.js')

@@ -1,0 +1,106 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+button,
+input,
+div {
+  outline: none;
+  border: none;
+}
+
+main article {
+  width: 100vw;
+  height: 95vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main article .display {
+  width: 80%;
+  height: 100%;
+  background-color: #1d1e1f;
+}
+
+main article .code-cont {
+  width: 20%;
+  height: 100%;
+  background-color: #141718;
+  padding: 2.5em;
+  color: white;
+}
+
+main article .code-cont .code {
+  min-height: calc(90%);
+  max-height: calc(90%);
+  font-family: "Inconsolata", monospace;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+main article .code-cont .code div {
+  font-family: "Inconsolata", monospace;
+  display: block;
+}
+
+main article .code-cont .code::-webkit-scrollbar {
+  width: 0.25em;
+}
+
+main article .code-cont .code::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+main article .code-cont .code::-webkit-scrollbar-thumb {
+  background: #d44551;
+}
+
+main article .code-cont .clipboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 10%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3em;
+}
+
+main article .code-cont .clipboard button {
+  padding: 1em;
+}
+
+main nav {
+  height: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3em;
+  background-color: #d44551;
+  padding: 0 1em;
+}
+
+main nav * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+
+main nav * input {
+  width: 5em;
+}
+/*# sourceMappingURL=style.css.map */

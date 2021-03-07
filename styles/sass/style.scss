@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+button,
+input,
+div {
+    outline: none;
+    border: none;
+}
+
+main {
+    article {
+        width: 100vw;
+        height: 95vh;
+        display: flex;
+        .display {
+            width: 80%;
+            height: 100%;
+            background-color: rgb(29, 30, 31);
+        }
+        .code-cont {
+            width: 20%;
+            height: 100%;
+            background-color: rgb(20, 23, 24);
+            padding: 2.5em;
+            color: white;
+            .code {
+                min-height: calc(90%);
+                max-height: calc(90%);
+                font-family: "Inconsolata", monospace;
+                div {
+                    font-family: "Inconsolata", monospace;
+                    display: block;
+                }
+                overflow-y: scroll;
+                overflow-x: hidden;
+                &::-webkit-scrollbar {
+                    width: 0.25em;
+                }
+                &::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background: rgb(212, 69, 81);
+                }
+            }
+            .clipboard {
+                display: flex;
+                height: 10%;
+                justify-content: center;
+                align-items: center;
+                gap: 3em;
+                button {
+                    padding: 1em;
+                }
+            }
+        }
+    }
+    nav {
+        height: 5vh;
+        display: flex;
+        align-items: center;
+        gap: 3em;
+        background-color: rgb(212, 69, 81);
+        padding: 0 1em;
+        * {
+            display: flex;
+            gap: 1em;
+            input {
+                width: 5em;
+            }
+        }
+    }
+}
