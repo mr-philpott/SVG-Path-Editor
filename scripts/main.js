@@ -10,46 +10,9 @@ c.height = window.innerHeight * 0.95;
 $(window).on("resize", () => {
     c.width = window.innerWidth * 0.8;
     c.height = window.innerHeight * 0.95;
+    let code = new CodeReader($(".code").html());
+    let draw = new Drawing(code.Return());
 });
-
-// https://stackoverflow.com/questions/1068834/object-comparison-in-javascript
-function CompareObjects(x, y) {
-    // remember that NaN === NaN returns false
-    // and isNaN(undefined) returns true
-    if (
-        isNaN(x) &&
-        isNaN(y) &&
-        typeof x === "number" &&
-        typeof y === "number"
-    ) {
-        return true;
-    }
-
-    // Compare primitives and functions.
-    // Check if both arguments link to the same object.
-    // Especially useful on the step where we compare prototypes
-    if (x === y) {
-        return true;
-    }
-
-    // Works in case when functions are created in constructor.
-    // Comparing dates is a common scenario. Another built-ins?
-    // We can even handle functions passed across iframes
-    if (
-        (typeof x === "function" && typeof y === "function") ||
-        (x instanceof Date && y instanceof Date) ||
-        (x instanceof RegExp && y instanceof RegExp) ||
-        (x instanceof String && y instanceof String) ||
-        (x instanceof Number && y instanceof Number)
-    ) {
-        return x.toString() === y.toString();
-    }
-
-    // At last checking prototypes as good as we can
-    if (!(x instanceof Object && y instanceof Object)) {
-        return false;
-    }
-}
 
 class Instruction {
     constructor(keyword, values) {
@@ -130,7 +93,6 @@ class CodeReader {
                     break;
                 case "h":
                     if (value + 1 < this.runningInput.length) {
-                        console.log(Number(this.runningInput[value + 1]));
                         instructions.push(
                             new Instruction("h", {
                                 x: Number(this.runningInput[value + 1]),
@@ -174,8 +136,8 @@ class CodeReader {
                     if (value + 4 < this.runningInput.length) {
                         instructions.push(
                             new Instruction("q", {
-                                x: Number(this.runningInput[value + 4]),
-                                y: Number(this.runningInput[value + 3]),
+                                x: Number(this.runningInput[value + 3]),
+                                y: Number(this.runningInput[value + 4]),
                                 controlx: Number(this.runningInput[value + 1]),
                                 controly: Number(this.runningInput[value + 2]),
                             })
@@ -256,7 +218,6 @@ class Drawing {
                             this.pointValue.index
                         ].values.controly1 = this.mousePos.y;
                     } else if (this.pointValue.type === "control2") {
-                        console.log("hit");
                         this.instructions[
                             this.pointValue.index
                         ].values.controlx2 = this.mousePos.x;
@@ -414,11 +375,16 @@ class Drawing {
     UpdateCode() {
         let html = "";
         for (let instruct of this.instructions) {
-            let identi = "";
-            for (let i in instruct.values) {
-                identi += `${instruct.values[i]} `;
-            }
-            html += `<div>${instruct.keyword} ${identi}</div>`;
+            // god my formatter makes this so ugly
+            html += `<div>${instruct.keyword} ${
+                instruct.values.controlx1 ? instruct.values.controlx1 : ""
+            } ${instruct.values.controly1 ? instruct.values.controly1 : ""} ${
+                instruct.values.controlx2 ? instruct.values.controlx2 : ""
+            } ${instruct.values.controly2 ? instruct.values.controly2 : ""} ${
+                instruct.values.controlx ? instruct.values.controlx : ""
+            } ${instruct.values.controly ? instruct.values.controly : ""} ${
+                instruct.values.x ? instruct.values.x : ""
+            } ${instruct.values.y ? instruct.values.y : ""}</div>`;
         }
         $(".code").html(html);
     }
@@ -431,8 +397,10 @@ class SvgAndMath {
 }
 
 $(function () {
+    let code = new CodeReader($(".code").html());
+    let draw = new Drawing(code.Return());
     $(".code").on("input", function () {
-        let code = new CodeReader($(this).html());
-        let draw = new Drawing(code.Return());
+        code = new CodeReader($(this).html());
+        draw = new Drawing(code.Return());
     });
 });

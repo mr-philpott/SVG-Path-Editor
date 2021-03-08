@@ -15,6 +15,26 @@
 //- l 200 200
 //- l 150 250
 
+//- West-Mec Logo
+//- m 200 200
+//- c 200 75 200 75 350 200
+//- l 550 350
+//- q 600 400 550 450
+//- l 350 600
+//- c 200 725 200 725 200 600
+//- z
+//- m 500 200
+//- c 500 75 500 75 650 200
+//- l 850 350
+//- q 900 400 850 450
+//- l 650 600
+//- c 500 725 500 725 500 600
+//- l 500 550
+//- l 600 475
+//- q 700 400 600 325
+//- l 500 250
+//- z
+
 doctype html
 head
     meta(charset='UTF-8')
@@ -30,7 +50,25 @@ body
             section.display 
                 canvas#canvas
             section.code-cont
-                .code(contenteditable="true" spellcheck="false") Type your code here...
+                .code(contenteditable="true" spellcheck="false") 
+                    div m 200 200
+                    div c 200 75 200 75 350 200
+                    div l 550 350
+                    div q 600 400 550 450
+                    div l 350 600
+                    div c 200 725 200 725 200 600
+                    div z
+                    div m 500 200
+                    div c 500 75 500 75 650 200
+                    div l 850 350
+                    div q 900 400 850 450
+                    div l 650 600
+                    div c 500 725 500 725 500 600
+                    div l 500 550
+                    div l 600 475
+                    div q 700 400 600 325
+                    div l 500 250
+                    div z
                 .clipboard
                     button.path-clipboard Copy Path 
                     button.math-clipboard Copy Math
